@@ -21,7 +21,7 @@ export default function RecomendentWatchCard({ id, channelId }) {
             }
         }
         RecomentendPage()
-    }, [])
+    }, [API_KEY, channelId, dispatch, id])
     
     const handleSave=(e,item)=>{
         e.preventDefault()
