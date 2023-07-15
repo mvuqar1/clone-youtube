@@ -52,6 +52,7 @@ export default function Home() {
         <Navbar />
       </div>
       <div className="flex" style={{ height: '92.5vh' }}>
+        
         <Sidebar />
 
         {data && data.length > 0 ? (
@@ -63,7 +64,7 @@ export default function Home() {
             height={650}
             endMessage={<p>No more videos</p>}
           >
-            <div className="grid gap-y-14 gap-x-8 grid-cols-4 p-8">
+            <div className="grid grid-rows-1 gap-y-20 md:gap-y-14 gap-x-8 md:grid-cols-4 p-8">
               {data.map((item) => (
                 <div key={item.id.videoId}>
                   <Card data={item} />
