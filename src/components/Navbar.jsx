@@ -32,19 +32,19 @@ export default function Navbar() {
 
 
   return (
-    <div className="flex justify-between items-center  px-14 h-14 bg-[#212121] opacity-95 sticky top-0 z-50">
-      <div className="flex gap-8 items-center text-2xl">
-        <div>
+    <div className="flex justify-between items-center px-2  md:px-14 h-14 bg-[#212121] opacity-95 sticky top-0 z-50">
+      <div className="flex gap-1 md:gap-8 items-center text-2xl">
+        <div className="hidden md:block">
           <GiHamburgerMenu />
         </div>
         <Link to="/">
-          <div className="flex gap-1 items-center justify-center">
+          <div className="flex gap-2 items-center justify-center">
             <BsYoutube className="text-3xl text-red-600" />
-            <span className="text-xl font-medium">YouTube</span>
+            <span className="text-xl font-medium hidden md:block">YouTube</span>
           </div>
         </Link>
       </div>
-      <div className="flex items-center justify-center gap-5">
+      <div className="flex items-center justify-center gap-2 md:gap-5">
         <form onSubmit={handleSearch}>
           <div className="flex bg-zinc-900 items-center h-10 px-4 pr-0">
             <div className="flex gap-4 items-center pr-5">
@@ -54,7 +54,7 @@ export default function Navbar() {
               <input
                 type="text"
                 value={searchTerm}
-                className="w-96 bg-zinc-900 focus:outline-none border-none"
+                className="w-8 md:w-96 bg-zinc-900 focus:outline-none border-none"
                 onChange={(e) => dispatch(changeSearchTerm(e.target.value))}
               />
 
@@ -68,14 +68,14 @@ export default function Navbar() {
             </button>
           </div>
         </form>
-        <div className="text-xl p-3 bg-zinc-900 rounded-full">
+        <div className="hidden md:block text-xl p-3 bg-zinc-900 rounded-full">
           <TiMicrophone />
         </div>
       </div>
       <div className="flex gap-5 items-center text-xl">
-        <BsCameraVideo />
-        <IoAppsSharp />
-        <div className="relative">
+        <BsCameraVideo className="hidden md:block" />
+        <IoAppsSharp className="hidden md:block" />
+        <div className="relative hidden md:block">
           <BsBell />
           <span className="absolute bottom-2 left-2 text-xs bg-red-600 rounded-full px-1">
             9+

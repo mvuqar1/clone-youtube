@@ -42,7 +42,7 @@ export default function Card({data}) {
         <Link onClick={(e)=>handleSave(e,data)}>
           <img
             src={data.snippet.thumbnails.medium.url}
-            className="w-full max-h-44 md:max-h-56 bg-cover lg:h-44 lg:w-72 "
+            className="w-full max-h-44 md:max-h-56 bg-contain lg:h-44 lg:w-72 "
             alt="thumbnail"
           />
         </Link>
