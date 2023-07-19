@@ -20,6 +20,20 @@ export default function Watch() {
   // console.log(currentPlaying)
   // console.log(currentPlaying,id)
 
+  
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 768); // Adjust the breakpoint as needed
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Set initial value
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
 
 
   useEffect(() => {
@@ -46,21 +60,21 @@ export default function Watch() {
             <Navbar />
           </div>
           <div className="flex w-full" style={{ height: "92.5vh" }}>
-            <div className="flex gap-y-10 gap-x-5 p-7 mx-20 mr-0 w-full overflow-auto">
+            <div className="block md:flex gap-y-10 gap-x-5 p-2 md:p-7 mx-4 md:mx-20 mr-0 w-full overflow-auto">
               <div style={{ maxWidth: "800px" }}>
                 <div>
-                  <iframe
-                    width="800"
-                    height="502"
-                    src={`https://www.youtube.com/embed/${id}?autoplay=1`}
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
+                <iframe
+                width={isSmallScreen ? "100%" : "800"}
+                height={isSmallScreen ? "300" : "502"}
+                src={`https://www.youtube.com/embed/${id}?autoplay=1`}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
                   <div className="mt-5">
                     <p className="text-xl">{currentPlaying.snippet.title}</p>
-                    <div className="flex justify-between mt-1">
+                    <div className="block md:flex justify-between mt-1">
                       <div className="text-sm text-gray-400">
                         <span className="after:content-['•'] after:mx-1">
                           {currentPlaying.snippet.title}
