@@ -63,7 +63,7 @@ export default function Navbar() {
                 onClick={clearSearch}
               />
             </div>
-            <button type="submit" className="h-10 w-5 md:w-16 flex items-center justify-center bg-zinc-800">
+            <button type="submit" className="h-10 w-7 md:w-16 flex items-center justify-center bg-zinc-800">
               <AiOutlineSearch className="text-xl" onClick={handleSearch} />
             </button>
           </div>
